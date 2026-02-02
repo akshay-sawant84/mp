@@ -11,6 +11,9 @@ export default function App() {
   const buttonSize = { width: 200, height: 100 };
   const [screenDisabled, setScreenDisabled] = useState(false);
 
+  const params = new URLSearchParams(window.location.search);
+  const name = params.get("name");
+
   const disableScreen = () => {
     setScreenDisabled(false);
   };
@@ -101,7 +104,7 @@ export default function App() {
                 animate={{ opacity: 1, y: 0 }}
                 className="text-3xl lg:text-5xl text-deep-red font-semibold text-center"
               >
-                Will you be my valentine?
+               {name ? `${name}, ` : ""}Will you be my valentine?
               </motion.h1>
 
               <div className="flex items-center space-x-4 justify-center">
